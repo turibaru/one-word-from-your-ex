@@ -2,6 +2,11 @@ import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
+// This little script reads the single word we saved beside it,
+// checks that it really is just one word and nothing else,
+// then drops a clean copy into the folder the grader points at.
+// If anything looks off, it stops loudly instead of guessing.
+
 function fail(message: string): never {
   console.error(`error: ${message}`);
   process.exit(1);
